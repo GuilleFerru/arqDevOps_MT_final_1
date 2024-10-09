@@ -40,3 +40,4 @@ kubernetes-cli
 uno-choice
 performance
 artifactory
+sonar

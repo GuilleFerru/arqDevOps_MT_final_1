@@ -47,8 +47,8 @@ resource "aws_instance" "jenkins" {
   }
 
   provisioner "file" {
-    source      = "ansible/docker-compose.yml"
-    destination = "/home/ubuntu/docker-compose.yml"
+    source      = "ansible/sonarqube.yml"
+    destination = "/home/ubuntu/sonarqube.yml"
   }
 
   provisioner "remote-exec" {
@@ -61,8 +61,9 @@ resource "aws_instance" "jenkins" {
       "ansible --version",
       "ansible-playbook --version",
       "export ANSIBLE_HOST_KEY_CHECKING=False",
-       "ansible-playbook /home/ubuntu/jenkins.yml",
+      "ansible-playbook /home/ubuntu/jenkins.yml",
       "ansible-playbook /home/ubuntu/docker.yml",
+      "ansible-playbook /home/ubuntu/sonarqube.yml",
       "ansible-playbook /home/ubuntu/kubernetes_minikube.yml"
     ]
   }

@@ -5,7 +5,7 @@ jenkins:
       allowsSignup: false
       users:
         - id: "admin"
-          password: ""
+          password: "123"
           
           
 # jobs:
